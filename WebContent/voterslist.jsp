@@ -28,7 +28,7 @@
       Connection conn = null;
          String URL ="jdbc:mysql://localhost:3306/voterslist";
          String USER="padhavi";
-        		 String PASS="truelies"; // <== Check!
+        		 String PASS="truelies"; 
         				 try{
         					 Class.forName(JDBC_DRIVER).newInstance();
         					 conn=DriverManager.getConnection(URL,USER,PASS);
@@ -38,13 +38,13 @@
         				 }
         				 
       // Connection conn =
-      //    DriverManager.getConnection("jdbc:odbc:eshopODBC");  // Access
+      //    DriverManager.getConnection("jdbc:odbc:eshopODBC");  
       Statement stmt = conn.createStatement();
  
       String sqlStr = "SELECT * FROM voterdetails WHERE votername IN (";
-      sqlStr += "'" + votername[0] + "'";  // First author
+      sqlStr += "'" + votername[0] + "'";  
       for (int i = 1; i < votername.length; ++i) {
-         sqlStr += ", '" + votername[i] + "'";  // Subsequent authors need a leading commas
+         sqlStr += ", '" + votername[i] + "'";  
       }
       sqlStr += ") AND votes > 0 ORDER BY votername ASC, party ASC";
  
